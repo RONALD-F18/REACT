@@ -15,7 +15,7 @@ export const Formulario = ({
 
   const handleChange = (e) => {
     const { name, value } = e.target; //Se acceder al nombre y el valor que contiene
-    let valoresActualizados = { ...valores, [name]: value }; //Agarre todo los valores que contiene valores y creame un nuevo json clave valor
+    let valoresActualizados = { ...valores, [name]: value }; 
     setValores(valoresActualizados);
     setDatos?.(valoresActualizados); //Si esta definido
   };
@@ -55,8 +55,7 @@ export const Formulario = ({
             ))
           }
 
-          {rutas &&
-            rutas.map((ruta) => (
+          {rutas?.map((ruta) => (
               <p key={ruta.id}>
                 <Link to={ruta.ruta}>{ruta.mensaje}</Link>
               </p>
