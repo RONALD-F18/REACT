@@ -5,7 +5,7 @@ const FormularioRegister = () => {
   const [datos, setDatos] = useState({});
 
   const enviarDatos = () => {
-    const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñ\s]{3,40}$/;
+    const nameRegex = /^[]{3,40}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const usernameRegex = /^[a-zA-Z0-9_]{3,15}$/;
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/;
