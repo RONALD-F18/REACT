@@ -5,6 +5,9 @@ const FormularioLogin = () => {
   const [datos, setDatos] = useState({});
 
   const enviarDatos = () => {
+
+    let nameRegex = "/^[a-zA-Z]";
+
     console.log(datos);
   };
 

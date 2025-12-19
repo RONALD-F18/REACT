@@ -55,8 +55,7 @@ export const Formulario = ({
             ))
           }
 
-          {rutas &&
-            rutas.map((ruta) => (
+          {rutas?.map((ruta) => (
               <p key={ruta.id}>
                 <Link to={ruta.ruta}>{ruta.mensaje}</Link>
               </p>
