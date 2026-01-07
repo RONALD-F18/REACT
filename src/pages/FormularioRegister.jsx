@@ -3,45 +3,42 @@ import { Formulario } from "../components/Formulario";
 
 const FormularioRegister = () => {
   const [datos, setDatos] = useState({});
+  const [errores, setErrores] = useState({});
 
   const enviarDatos = () => {
-    const nameRegex = /^[]{3,40}$/;
+    const erroresTemp = {};
+
+    const nameRegex = /^[a-zA-Z\s]{3,40}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const usernameRegex = /^[a-zA-Z0-9_]{3,15}$/;
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-    if (!nameRegex.test(datos.nombre || "")) {
-      alert(
-        "El nombre no es válido. Debe tener entre 3 y 40 caracteres y solo contener letras y espacios."
-      );
-      return;
+    if (!nameRegex.test(datos.nombre)) {
+      erroresTemp.nombre = "Debe tener entre 3 y 40 caracteres y solo letras";
     }
 
-    if (!emailRegex.test(datos.email || "")) {
-      alert("El correo electrónico no es válido.");
-      return;
+    if (!emailRegex.test(datos.email)) {
+      erroresTemp.email = "Correo electrónico inválido";
     }
 
-    if (!usernameRegex.test(datos.usuario || "")) {
-      alert(
-        "El nombre de usuario no es válido. Debe tener entre 3 y 15 caracteres y solo contener letras, números y guiones bajos."
-      );
-      return;
+    if (!usernameRegex.test(datos.usuario)) {
+      erroresTemp.usuario = "Entre 3 y 15 caracteres, solo letras, números y _";
     }
 
-    if (!passwordRegex.test(datos.contrasena || "")) {
-      alert(
-        "La contraseña no es válida. Debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una letra minúscula y un número."
-      );
-      return;
+    if (!passwordRegex.test(datos.contrasena)) {
+      erroresTemp.contrasena =
+        "Mínimo 8 caracteres, una mayúscula, una minúscula y un número";
     }
 
     if (datos.contrasena !== datos.confirmarContrasena) {
-      alert("Las contraseñas no coinciden.");
-      return;
+      erroresTemp.confirmarContrasena = "Las contraseñas no coinciden";
     }
 
-    alert("Registro exitoso!");
+    setErrores(erroresTemp);
+
+    if (Object.keys(erroresTemp).length === 0) {
+      alert("Registro exitoso!");
+    }
   };
 
   const rutas = [
@@ -104,6 +101,7 @@ const FormularioRegister = () => {
         subtitulo={"Completa tus datos para registrarse"}
         setDatos={setDatos}
         funcion={enviarDatos}
+        errores={errores}
         rutas={rutas}
       />
     </div>

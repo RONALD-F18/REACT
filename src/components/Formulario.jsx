@@ -9,13 +9,14 @@ export const Formulario = ({
   setDatos,
   funcion,
   color,
+  errores,
   rutas,
 }) => {
   const [valores, setValores] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target; //Se acceder al nombre y el valor que contiene
-    let valoresActualizados = { ...valores, [name]: value }; 
+    let valoresActualizados = { ...valores, [name]: value };
     setValores(valoresActualizados);
     setDatos?.(valoresActualizados); //Si esta definido
   };
@@ -50,16 +51,21 @@ export const Formulario = ({
                   onChange={handleChange}
                   placeholder={campo.placeholder}
                 />{" "}
+                {errores[campo.name] && (
+                  <span className="error-text">{errores[campo.name]}</span>
+                )}
                 <br />
               </div>
             ))
           }
 
+          {}
+
           {rutas?.map((ruta) => (
-              <p key={ruta.id}>
-                <Link to={ruta.ruta}>{ruta.mensaje}</Link>
-              </p>
-            ))}
+            <p key={ruta.id}>
+              <Link to={ruta.ruta}>{ruta.mensaje}</Link>
+            </p>
+          ))}
 
           <button type="submit" className="boton">
             Confirmar
