@@ -11,6 +11,7 @@ export const Formulario = ({
   color,
   errores,
   rutas,
+  validarDatos,
 }) => {
   const [valores, setValores] = useState({});
 
@@ -19,6 +20,7 @@ export const Formulario = ({
     let valoresActualizados = { ...valores, [name]: value };
     setValores(valoresActualizados);
     setDatos?.(valoresActualizados); //Si esta definido
+    validarDatos?.();
   };
 
   const handleSubmit = (e) => {
