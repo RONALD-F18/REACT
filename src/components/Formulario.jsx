@@ -9,7 +9,7 @@ export const Formulario = ({
   setDatos,
   funcion,
   color,
-  errores,
+  errores = {},
   rutas,
   validarDatos,
 }) => {

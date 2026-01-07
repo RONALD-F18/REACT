@@ -1,49 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Formulario } from "../components/Formulario";
 
 const FormularioRegister = () => {
   const [datos, setDatos] = useState({});
   const [errores, setErrores] = useState({});
 
+
   const enviarDatos = () => {
-    // const erroresTemp = {};
-
-    // const nameRegex = /^[a-zA-Z\s]{3,40}$/;
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // const usernameRegex = /^[a-zA-Z0-9_]{3,15}$/;
-    // const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    // const fechaRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
-
-    // if (!nameRegex.test(datos.nombre || "")) {
-    //   erroresTemp.nombre = "Debe tener entre 3 y 40 caracteres y solo letras";
-    // }
-
-    // if (!emailRegex.test(datos.email || "")) {
-    //   erroresTemp.email = "Correo electrónico inválido";
-    // }
-
-    // if (!usernameRegex.test(datos.usuario || "")) {
-    //   erroresTemp.usuario = "Entre 3 y 15 caracteres, solo letras, números y _";
-    // }
-
-    // if (!passwordRegex.test(datos.contrasena || "")) {
-    //   erroresTemp.contrasena =
-    //     "Mínimo 8 caracteres, una mayúscula, una minúscula y un número";
-    // }
-
-    // if (
-    //   datos.contrasena !== datos.confirmarContrasena ||
-    //   datos.confirmarContrasena == ""
-    // ) {
-    //   erroresTemp.confirmarContrasena = "Las contraseñas no coinciden";
-    // }
-
-    // if (!fechaRegex.test(datos.fechaNacimiento)) {
-    //   erroresTemp.fechaNacimiento = "La fecha de nacimiento es invalida";
-    // }
-
-    // setErrores(erroresTemp);
-
     if (Object.keys(errores).length === 0) {
       alert("Registro exitoso!");
     } else {
